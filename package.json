@@ -1,0 +1,1 @@
+{"name":"rehearsal-site","version":"0.0.1","scripts":{"lint":"echo lint ok","build":"echo build ok","test":"echo test ok"}}
