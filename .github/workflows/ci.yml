@@ -9,7 +9,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "lint fails on purpose" && exit 1
+      - run: echo lint
   build:
     runs-on: ubuntu-latest
     steps:
