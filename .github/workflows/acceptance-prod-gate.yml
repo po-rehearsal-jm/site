@@ -1,0 +1,21 @@
+name: acceptance-prod-gate
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        type: choice
+        options: [production, selfreview-test]
+permissions: {}
+jobs:
+  gate-production:
+    if: inputs.target == 'production'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - run: echo "acceptance test only, nothing is deployed"
+  gate-selfreview-test:
+    if: inputs.target == 'selfreview-test'
+    runs-on: ubuntu-latest
+    environment: production-selfreview-test
+    steps:
+      - run: echo "acceptance test only, nothing is deployed"
