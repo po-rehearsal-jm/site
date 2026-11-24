@@ -1,0 +1,15 @@
+title = "PriorityOne website"
+[extend]
+useDefault = true
+[[rules]]
+id = "env-fallback-literal"
+description = "A literal fallback after an environment variable that looks like a credential"
+regex = '''process\.env\.[A-Za-z0-9_]*(?:PASS|PWD|SECRET|TOKEN|KEY|CRED)[A-Za-z0-9_]*\s*(?:\|\||\?\?)\s*['"]([^'"]{4,})['"]'''
+secretGroup = 1
+keywords = ["process.env"]
+[[rules]]
+id = "literal-password-assignment"
+description = "A literal assigned to a name that looks like a password or secret"
+regex = '''(?i)(?:password|passwd|pwd|secret)\w*\s*[:=]\s*['"]([^'"\s]{6,})['"]'''
+secretGroup = 1
+keywords = ["password", "passwd", "pwd", "secret"]
